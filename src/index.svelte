@@ -1,16 +1,11 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { Route, Router } from "svelte-routing";
 
-  let time = new Date().toLocaleTimeString();
-
-  onMount(() => {
-    setInterval(() => {
-      time = new Date().toLocaleTimeString();
-    }, 1000);
-  });
+  import Splash from "pages/Splash.svelte";
 </script>
 
-<div class="text-primary">
-  hello from svelte.<br />
-  Current Time: {time}
+<div>
+  <Router>
+    <Route path="/" component={Splash} />
+  </Router>
 </div>
