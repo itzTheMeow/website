@@ -10,7 +10,7 @@
 
 <div class="flex flex-col w-full h-full">
   <Navbar />
-  <div class="flex-1">
+  <div class="flex-1 mx-2 my-4">
     <Router>
       <Route path={Paths.Contact} component={Contact} />
       <Route path={Paths.Portfolio} component={Portfolio} />
