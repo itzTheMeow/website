@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Nevis";
+  src: url(./Nevis.ttf);
+}
+
+:root {
+  --orangePink: linear-gradient(var(--gradientDegree), var(--orange) 0, var(--pink) 100%);
+  --orangeRed: linear-gradient(var(--gradientDegree), var(--red) 0, var(--orange) 100%);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--cyan) transparent;
+}
+body {
+  @apply h-screen p-0 m-0;
+
+  background-color: var(--black);
+  color: var(--white);
+  font-family: "Nevis";
+}
+.drac-btn {
+  font-family: "Nevis" !important;
+}
+
+.drac-bg-orange-pink {
+  background: var(--orangePink);
+}
+.drac-text-orange-pink {
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-image: var(--orangePink);
+  background-size: 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.drac-bg-orange-red {
+  background: var(--orangeRed);
+}
+.drac-text-orange-red {
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-image: var(--orangeRed);
+  background-size: 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
