@@ -10,10 +10,11 @@ $tip: #000000;
   position: relative;
   background-color: $tip;
   color: inherit;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 14px;
   line-height: 1.4;
   white-space: normal;
+  font-weight: 700;
   outline: 0;
   transition-property: transform, visibility, opacity;
 }
