@@ -1,17 +1,10 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import Navbar from "navbar/Navbar.svelte";
   import { Route, Router } from "svelte-routing";
   import PageSplash from "./routes/splash/index.svelte";
-
-  let time = new Date().toLocaleTimeString();
-
-  onMount(() => {
-    setInterval(() => {
-      time = new Date().toLocaleTimeString();
-    }, 1000);
-  });
 </script>
 
+<Navbar />
 <Router>
   <Route component={PageSplash} path="/" />
 </Router>
