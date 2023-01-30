@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { IconCodePlus, IconPhotoUp } from "@tabler/icons-svelte";
+  import { IconCodePlus, IconLogin, IconPhotoUp } from "@tabler/icons-svelte";
+  import { MyAccount } from "Auth";
   import { Colors } from "Colors";
   import NavbarButton from "./NavbarButton.svelte";
 </script>
@@ -12,11 +13,11 @@
     <NavbarButton href="/" square><IconPhotoUp /></NavbarButton>
     <NavbarButton href="/" square><IconCodePlus /></NavbarButton>
     <NavbarButton href="/" square>
-      <img
-        class="w-9 h-9 rounded-full"
-        src="https://s.gravatar.com/avatar/93ea38bcb080e3697a8bb93e480e7e93?s=80"
-        alt=""
-      />
+      {#if $MyAccount}
+        <img class="w-9 h-9 rounded-full" src="/avatars/{$MyAccount.id}" alt="" />
+      {:else}
+        <IconLogin style="transform:rotate(180deg)" />
+      {/if}
     </NavbarButton>
   </div>
 </div>

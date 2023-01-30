@@ -5,6 +5,7 @@ export enum Colors {
   navbar = "#282a36",
 }
 
+// https://uigradients.com
 export const Gradients = {
   Blue: ["#00b4db", "#0083b0"], // Blue Raspberry
   Orange: ["#f7b733", "#fc4a1a"], // Orange Fun
