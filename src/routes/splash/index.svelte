@@ -6,9 +6,15 @@
 </script>
 
 <Page title="Meow">
-  <div class="flex flex-col gap-0.5 {$ScreenWidth <= 800 ? 'mx-auto' : 'ml-[15%] mt-[10%]'} w-fit">
+  <div
+    class="flex flex-col gap-0.5 {$ScreenWidth <= 800
+      ? 'mx-auto mt-[7%]'
+      : 'ml-[15%] mt-[10%]'} w-fit"
+  >
     <h1
-      class="text-6xl font-bold bg-clip-text text-transparent font-[Nevis]"
+      class="{$ScreenWidth <= 425
+        ? 'text-4xl'
+        : 'text-6xl'} font-bold bg-clip-text text-transparent font-[Nevis]"
       style:background-image={Gradient(Gradients.Orange)}
       in:fly={{ duration: 1000, x: 0, y: -35 }}
     >

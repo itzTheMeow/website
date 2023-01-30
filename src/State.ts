@@ -7,6 +7,7 @@ if (typeof window !== "undefined") {
     ScreenWidth.set(window.innerWidth);
   }
   window.addEventListener("resize", () => calcScreen());
-  window.addEventListener("ro", () => calcScreen());
+  window.addEventListener("focus", () => calcScreen());
+  window.addEventListener("deviceorientation", () => calcScreen());
   calcScreen();
 }
