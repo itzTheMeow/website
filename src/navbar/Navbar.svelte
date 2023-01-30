@@ -1,11 +1,10 @@
 <script lang="ts">
   import { IconCodePlus, IconLogin, IconPhotoUp } from "@tabler/icons-svelte";
   import { MyAccount } from "Auth";
-  import { Colors } from "Colors";
   import NavbarButton from "./NavbarButton.svelte";
 </script>
 
-<div class="w-full h-16 flex items-center px-3 gap-2" style:background={Colors.navbar}>
+<div class="w-full h-16 flex items-center px-3 gap-2 bg-black bg-opacity-10">
   <NavbarButton href="/">Home</NavbarButton>
   <NavbarButton href="/">Blog</NavbarButton>
   <NavbarButton href="/">Portfolio</NavbarButton>
