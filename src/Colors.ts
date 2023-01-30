@@ -6,6 +6,7 @@ export enum Colors {
 }
 
 export const Gradients = {
+  Blue: ["#00b4db", "#0083b0"], // Blue Raspberry
   Orange: ["#f7b733", "#fc4a1a"], // Orange Fun
   Purple: ["#834d9b", "#d04ed6"], // Suzy
 };
