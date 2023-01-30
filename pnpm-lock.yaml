@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@tabler/icons-svelte': ^2.1.2
   '@tsconfig/svelte': ^3.0.0
   '@types/express': ^4.17.13
   autoprefixer: ^10.4.8
@@ -17,6 +18,7 @@ specifiers:
   typescript: ^4.7.4
 
 dependencies:
+  '@tabler/icons-svelte': 2.1.2_svelte@3.55.1
   '@tsconfig/svelte': 3.0.0
   '@types/express': 4.17.16
   autoprefixer: 10.4.13_postcss@8.4.21
@@ -62,6 +64,19 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
+    dev: false
+
+  /@tabler/icons-svelte/2.1.2_svelte@3.55.1:
+    resolution: {integrity: sha512-LWK2zsVpC5pZo0Aiy6DgWBTDZ7oIst5EkpRenpnRRVGrn+DJPwx4cYUUbtfgFV/O4Qha8hUw5FEtkevRrueVsQ==}
+    peerDependencies:
+      svelte: ^3.49.0
+    dependencies:
+      '@tabler/icons': 2.1.2
+      svelte: 3.55.1
+    dev: false
+
+  /@tabler/icons/2.1.2:
+    resolution: {integrity: sha512-+CPB+BSqVDP4+/d+cHSaGwG460C3sob7EJkQ+ZS8xV6bRER64OsCP92O7M+uYBhJFDWuf6poCeSETNZNcFa2nA==}
     dev: false
 
   /@tsconfig/svelte/3.0.0:
