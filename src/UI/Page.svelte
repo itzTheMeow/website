@@ -4,10 +4,10 @@
   export let title: string;
 
   onMount(() => {
-    document.body.title = title;
+    document.querySelector("title")!.innerText = title;
   });
 </script>
 
-<div>
+<div class="flex-1">
   <slot />
 </div>

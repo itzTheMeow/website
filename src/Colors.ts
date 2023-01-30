@@ -3,6 +3,7 @@ export enum Colors {
   secondary = "#21222c",
   tertiary = "#111315",
   navbar = "#282a36",
+  background = "#2a303c",
 }
 
 // https://uigradients.com
