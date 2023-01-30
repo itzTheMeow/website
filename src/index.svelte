@@ -1,5 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { Route, Router } from "svelte-routing";
+  import PageSplash from "./routes/splash/index.svelte";
 
   let time = new Date().toLocaleTimeString();
 
@@ -10,7 +12,6 @@
   });
 </script>
 
-<div class="text-primary">
-  hello from svelte.<br />
-  Current Time: {time}
-</div>
+<Router>
+  <Route component={PageSplash} path="/" />
+</Router>
