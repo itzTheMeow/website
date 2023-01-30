@@ -16,7 +16,7 @@
         ? 'text-4xl'
         : 'text-6xl'} font-bold bg-clip-text text-transparent"
       style:background-image={Gradient(Gradients.Orange)}
-      in:fly={{ duration: 900, x: 0, y: -35 }}
+      in:fly={{ duration: 900, y: -35 }}
     >
       Hi, I'm Meow
     </h1>
