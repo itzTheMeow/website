@@ -7,7 +7,7 @@
 </script>
 
 <a
-  class="btn {square ? 'w-10 p-1' : ''} rounded-full border-none min-h-[2.5rem] h-10 text-gray-200"
+  class="btn {square ? 'w-10 p-0' : ''} rounded-full border-none min-h-[2.5rem] h-10 text-gray-200"
   style:background={Gradient(square ? Gradients.Pink : Gradients.Purple)}
   {href}
   use:link
