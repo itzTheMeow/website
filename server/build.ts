@@ -33,7 +33,7 @@ esbuild
     ],
     logLevel: "info",
     target: "es6",
-    loader: { ".png": "file" },
+    loader: { ".png": "file", ".ttf": "file" },
   })
   .then(() => {
     fs.copyFileSync("src/index.html", "dist/index.html");
