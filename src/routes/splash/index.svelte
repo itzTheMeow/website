@@ -1,11 +1,12 @@
 <script lang="ts">
   import { Gradient, Gradients } from "Colors";
+  import { ScreenWidth } from "State";
   import { blur, fly } from "svelte/transition";
   import Page from "UI/Page.svelte";
 </script>
 
 <Page title="Meow">
-  <div class="flex flex-col gap-0.5 ml-[15%] mt-[10%]">
+  <div class="flex flex-col gap-0.5 {$ScreenWidth <= 800 ? 'mx-auto' : 'ml-[15%] mt-[10%]'} w-fit">
     <h1
       class="text-6xl font-bold bg-clip-text text-transparent font-[Nevis]"
       style:background-image={Gradient(Gradients.Orange)}
