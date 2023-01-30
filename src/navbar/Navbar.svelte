@@ -10,9 +10,9 @@
   <NavbarButton href="/">Blog</NavbarButton>
   <NavbarButton href="/">Portfolio</NavbarButton>
   <div class="flex items-center gap-2 ml-auto">
-    <NavbarButton href="/" square><IconPhotoUp /></NavbarButton>
-    <NavbarButton href="/" square><IconCodePlus /></NavbarButton>
-    <NavbarButton href="/" square>
+    <NavbarButton href="/" square="Upload Image"><IconPhotoUp /></NavbarButton>
+    <NavbarButton href="/" square="Upload Code"><IconCodePlus /></NavbarButton>
+    <NavbarButton href="/" square={$MyAccount ? "Manage Account" : "Log In"}>
       {#if $MyAccount}
         <img class="w-9 h-9 rounded-full" src="/avatars/{$MyAccount.id}" alt="" />
       {:else}
