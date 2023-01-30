@@ -3,11 +3,12 @@
   import { link } from "svelte-routing";
   import { tippy } from "svelte-tippy";
 
-  export let href: string,
+  export let href: string | (() => any),
     square = "";
 </script>
 
-<a
+<svelte:element
+  this={typeof href == "string" ? "a" : "div"}
   class="btn {square ? 'w-10 p-0' : ''} rounded-full border-none min-h-[2.5rem] h-10 text-gray-200"
   style:background={Gradient(square ? Gradients.Pink : Gradients.Purple)}
   use:tippy={{
@@ -18,8 +19,8 @@
     arrow: false,
     offset: [0, 6],
   }}
-  {href}
+  href={typeof href == "string" ? href : undefined}
   use:link
 >
   <slot />
-</a>
+</svelte:element>
