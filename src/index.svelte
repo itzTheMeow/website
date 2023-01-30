@@ -4,7 +4,9 @@
   import PageSplash from "./routes/splash/index.svelte";
 </script>
 
-<Navbar />
-<Router>
-  <Route component={PageSplash} path="/" />
-</Router>
+<div class="flex flex-col w-full h-full">
+  <Navbar />
+  <Router>
+    <Route component={PageSplash} path="/" />
+  </Router>
+</div>
