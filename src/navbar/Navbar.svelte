@@ -13,7 +13,7 @@
     <NavbarButton href="/" square><IconCodePlus /></NavbarButton>
     <div
       class="w-10 h-10 rounded-full flex items-center justify-center"
-      style:background={Gradient(Gradients.Blue)}
+      style:background={Gradient(Gradients.Pink)}
     >
       <img
         class="w-9 h-9 rounded-full"
