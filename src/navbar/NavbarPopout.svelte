@@ -1,6 +1,7 @@
 <script lang="ts">
   import { IconChevronLeft, IconChevronRight } from "@tabler/icons-svelte";
   import { Colors } from "Colors";
+  import { ScreenWidth } from "State";
   import { NavButtons, openMenu } from "./Navbar";
   import NavbarButton from "./NavbarButton.svelte";
 
@@ -12,7 +13,10 @@
   {#each opened && Array.isArray($openMenu) ? $openMenu : NavButtons as btn}
     {#if !Array.isArray(btn.href)}
       <li>
-        <NavbarButton href={btn.href} className="!rounded-none !bg-none !h-14 text-lg">
+        <NavbarButton
+          href={btn.href}
+          className="!rounded-none !bg-none {$ScreenWidth <= 600 ? '!h-14 text-lg' : ''}"
+        >
           {btn.name}
         </NavbarButton>
       </li>
@@ -20,7 +24,7 @@
       <li class="relative">
         <NavbarButton
           href={() => Array.isArray(btn.href) && openMenu.set(btn.href)}
-          className="!rounded-none !bg-none !h-14 text-lg"
+          className="!rounded-none !bg-none {$ScreenWidth <= 600 ? '!h-14 text-lg' : ''}"
           popout
         >
           <IconChevronLeft class="mr-auto invisible" size={20} />

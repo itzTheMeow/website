@@ -37,9 +37,20 @@
       {#if !Array.isArray(btn.href)}
         <NavbarButton href={btn.href}>{btn.name}</NavbarButton>
       {:else}
-        <NavbarButton href={() => Array.isArray(btn.href) && openMenu.set(btn.href)}>
-          {btn.name}<IconChevronDown class="-mr-2" size={20} />
-        </NavbarButton>
+        <div class="relative">
+          <NavbarButton
+            popout
+            href={() =>
+              Array.isArray(btn.href) && $openMenu !== btn.href
+                ? openMenu.set(btn.href)
+                : openMenu.set(null)}
+          >
+            {btn.name}<IconChevronDown class="-mr-2" size={20} />
+          </NavbarButton>
+          {#if $openMenu == btn.href}
+            <NavbarPopout opened className="top-[125%] left-0" />
+          {/if}
+        </div>
       {/if}
     {/each}
   {:else}
