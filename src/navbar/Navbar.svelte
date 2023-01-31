@@ -12,34 +12,16 @@
   import { Colors } from "Colors";
   import { getWindow, ScreenWidth } from "State";
   import { onDestroy, onMount } from "svelte";
+  import { NavButtons, openMenu } from "./Navbar";
   import NavbarButton from "./NavbarButton.svelte";
-
-  interface NavDrop {
-    name: string;
-    href: string;
-  }
-
-  let openMenu: NavDrop[] | true | null = null;
-
-  const buttons: { name: string; href: string | (() => any) | NavDrop[] }[] = [
-    { name: "Home", href: "/" },
-    { name: "Blog", href: "/blog" },
-    { name: "Portfolio", href: "/portfolio" },
-    {
-      name: "Tools",
-      href: [
-        { name: "BPM Finder", href: "/bpm-finder" },
-        { name: "ultrablur", href: "/package/ultrablur" },
-      ],
-    },
-  ];
+  import NavbarPopout from "./NavbarPopout.svelte";
 
   function handleClick(e: MouseEvent) {
     if (
-      openMenu &&
+      $openMenu &&
       ![...e.composedPath()].find((e: any) => e.getAttribute?.("data-nav-popout") == "true")
     )
-      openMenu = null;
+      openMenu.set(null);
   }
   onMount(() => {
     getWindow()?.addEventListener("click", handleClick);
@@ -51,56 +33,52 @@
 
 <div class="w-full h-16 flex items-center px-3 gap-2 bg-black bg-opacity-10">
   {#if $ScreenWidth > 600}
-    {#each buttons as btn}
+    {#each NavButtons as btn}
       {#if !Array.isArray(btn.href)}
         <NavbarButton href={btn.href}>{btn.name}</NavbarButton>
       {:else}
-        <NavbarButton href={() => Array.isArray(btn.href) && (openMenu = btn.href)}>
+        <NavbarButton href={() => Array.isArray(btn.href) && openMenu.set(btn.href)}>
           {btn.name}<IconChevronDown class="-mr-2" size={20} />
         </NavbarButton>
       {/if}
     {/each}
   {:else}
     <div class="relative">
-      <NavbarButton popout href={() => (openMenu = openMenu ? null : true)}>
+      <NavbarButton popout href={() => openMenu.set($openMenu ? null : true)}>
         <IconMenu2 />
       </NavbarButton>
-      {#if openMenu && $ScreenWidth <= 600}
-        <ul
-          class="absolute top-[125%] left-0 menu w-max rounded-box z-50"
-          style:background={Colors.tertiary}
-        >
-          {#each buttons as btn}
-            {#if !Array.isArray(btn.href)}
-              <li>
-                <NavbarButton href={btn.href} className="!rounded-none !bg-none !h-14 text-lg">
-                  {btn.name}
-                </NavbarButton>
-              </li>
-            {:else}
-              <li>
-                <NavbarButton
-                  href={() => Array.isArray(btn.href) && (openMenu = btn.href)}
-                  className="!rounded-none !bg-none !h-14 text-lg"
-                  popout
-                >
-                  <IconChevronLeft class="mr-auto invisible" size={20} />
-                  {btn.name}
-                  <IconChevronRight class="ml-auto" size={20} />
-                </NavbarButton>
-              </li>
-            {/if}
-          {/each}
-        </ul>
+      {#if $openMenu && $ScreenWidth <= 600}
+        <NavbarPopout className="top-[125%] left-0" />
       {/if}
     </div>
   {/if}
-  {#if openMenu && typeof openMenu !== "boolean"}
-    <div>
-      {#each openMenu as item}
-        <div>{item.name}</div>
+  {#if $openMenu && typeof $openMenu !== "boolean"}
+    <ul
+      class="absolute top-[125%] left-0 menu w-max rounded-box z-50"
+      style:background={Colors.tertiary}
+    >
+      {#each NavButtons as btn}
+        {#if !Array.isArray(btn.href)}
+          <li>
+            <NavbarButton href={btn.href} className="!rounded-none !bg-none !h-14 text-lg">
+              {btn.name}
+            </NavbarButton>
+          </li>
+        {:else}
+          <li>
+            <NavbarButton
+              href={() => Array.isArray(btn.href) && openMenu.set(btn.href)}
+              className="!rounded-none !bg-none !h-14 text-lg"
+              popout
+            >
+              <IconChevronLeft class="mr-auto invisible" size={20} />
+              {btn.name}
+              <IconChevronRight class="ml-auto" size={20} />
+            </NavbarButton>
+          </li>
+        {/if}
       {/each}
-    </div>
+    </ul>
   {/if}
   <div class="flex items-center gap-2 ml-auto">
     <NavbarButton href="/" square="Upload Image"><IconPhotoUp /></NavbarButton>
