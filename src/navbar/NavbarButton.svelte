@@ -4,12 +4,16 @@
   import { tippy } from "svelte-tippy";
 
   export let href: string | (() => any),
-    square = "";
+    square = "",
+    className = "",
+    popout = false;
 </script>
 
 <svelte:element
   this={typeof href == "string" ? "a" : "div"}
-  class="btn {square ? 'w-10 p-0' : ''} rounded-full border-none min-h-[2.5rem] h-10 text-gray-200"
+  class="btn {square
+    ? 'w-10 p-0'
+    : ''} rounded-full border-none min-h-[2.5rem] h-10 text-gray-200 {className}"
   style:background={Gradient(square ? Gradients.Pink : Gradients.Purple)}
   use:tippy={{
     content: square,
@@ -20,7 +24,9 @@
     offset: [0, 6],
   }}
   href={typeof href == "string" ? href : undefined}
+  on:click={typeof href !== "string" ? href() : undefined}
   use:link
+  data-nav-popout={popout}
 >
   <slot />
 </svelte:element>
