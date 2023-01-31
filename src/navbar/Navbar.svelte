@@ -10,9 +10,14 @@
   import { ScreenWidth } from "State";
   import NavbarButton from "./NavbarButton.svelte";
 
-  let openMenu = "";
+  interface NavDrop {
+    name: string;
+    href: string;
+  }
 
-  const buttons: { name: string; href: string | (() => any) | {}[] }[] = [
+  let openMenu: { name: string; href: NavDrop[] } | true | null = null;
+
+  const buttons: { name: string; href: string | (() => any) | NavDrop[] }[] = [
     { name: "Home", href: "/" },
     { name: "Blog", href: "/blog" },
     { name: "Portfolio", href: "/portfolio" },
@@ -32,13 +37,20 @@
       {#if !Array.isArray(btn.href)}
         <NavbarButton href={btn.href}>{btn.name}</NavbarButton>
       {:else}
-        <NavbarButton href={() => (openMenu = btn.name)}>
+        <NavbarButton href={() => (openMenu = btn)}>
           {btn.name}<IconChevronDown class="-mr-2" size={20} />
         </NavbarButton>
       {/if}
     {/each}
   {:else}
     <NavbarButton href="/"><IconMenu2 /></NavbarButton>
+  {/if}
+  {#if openMenu && typeof openMenu !== "boolean"}
+    <div>
+      {#each openMenu.href as item}
+        <div>{item.name}</div>
+      {/each}
+    </div>
   {/if}
   <div class="flex items-center gap-2 ml-auto">
     <NavbarButton href="/" square="Upload Image"><IconPhotoUp /></NavbarButton>
