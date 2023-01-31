@@ -15,7 +15,9 @@
       <li>
         <NavbarButton
           href={btn.href}
-          className="!rounded-none !bg-none {$ScreenWidth <= 600 ? '!h-14 text-lg' : ''}"
+          className="!rounded-none !bg-none !normal-case {$ScreenWidth <= 600
+            ? '!h-14 text-lg'
+            : ''}"
         >
           {btn.name}
         </NavbarButton>
@@ -24,7 +26,9 @@
       <li class="relative">
         <NavbarButton
           href={() => Array.isArray(btn.href) && openMenu.set(btn.href)}
-          className="!rounded-none !bg-none {$ScreenWidth <= 600 ? '!h-14 text-lg' : ''}"
+          className="!rounded-none !bg-none !normal-case {$ScreenWidth <= 600
+            ? '!h-14 text-lg'
+            : ''}"
           popout
         >
           <IconChevronLeft class="mr-auto invisible" size={20} />
