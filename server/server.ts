@@ -9,6 +9,9 @@ export function init() {
 
   const app = express();
   app.use(express.static(process.cwd() + "/dist"));
+  app.get("/robots.txt", (_, res) =>
+    res.send(`User-agent: *\,Allow: /\n\nSitemap: https://itsmeow.cat/sitemap.xml`)
+  );
   app.get("*", (req, res) => {
     let html = "";
     if (process.argv.includes(`--watch`)) {
