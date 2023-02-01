@@ -68,7 +68,7 @@
       {/if}
     </div>
   {/if}
-  {#if $openMenu && typeof $openMenu !== "boolean"}
+  {#if $openMenu && typeof $openMenu !== "boolean" && $ScreenWidth <= 600}
     <ul
       class="absolute top-[125%] left-0 menu w-max rounded-box z-50"
       style:background={Colors.tertiary}
