@@ -20,7 +20,11 @@ export function init() {
     } else html = svelte.default.render({ url: req.url }).html;
 
     const file = fs.readFileSync(process.cwd() + "/src/index.html").toString();
-    res.send(file.replace("<!--HTML-->", html));
+    res.send(
+      file
+        .replace("<!--HTML-->", html)
+        .replace("/*CSS*/", fs.readFileSync(process.cwd() + "/dist/index.css").toString())
+    );
   });
   app.listen(config.port, () => {
     console.log(`Listening on port ${config.port}.`);

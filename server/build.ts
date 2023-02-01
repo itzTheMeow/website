@@ -32,7 +32,7 @@ esbuild
     ],
     logLevel: "info",
     target: "es6",
-    loader: { ".png": "file", ".ttf": "file" },
+    loader: { ".png": "file", ".ttf": "file", ".woff2": "file" },
   })
   .then(async () => {
     console.log("Building SSR...");
