@@ -9,6 +9,7 @@ export function init() {
 
   const app = express();
   app.use((req, res, next) => {
+    res.setHeader("Cache-Control", "public, max-age=31536000");
     next();
   });
   app.use(express.static(process.cwd() + "/dist"));
