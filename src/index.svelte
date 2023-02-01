@@ -1,9 +1,11 @@
 <script lang="ts">
   import { Colors } from "Colors";
   import Navbar from "navbar/Navbar.svelte";
+  import { Paths } from "Paths";
   import { Route, Router } from "svelte-routing";
   import { generateUltrablurCSS } from "ultrablur";
   import PageSplash from "./routes/splash/index.svelte";
+  import PageBPMFinder from "./routes/tools/bpm-finder/index.svelte";
 </script>
 
 <div
@@ -13,6 +15,7 @@
 <div class="flex flex-col overflow-x-hidden w-full h-full relative">
   <Navbar />
   <Router>
-    <Route component={PageSplash} path="/" />
+    <Route path={Paths.Splash} component={PageSplash} />
+    <Route path={Paths.ToolBPMFinder} component={PageBPMFinder} />
   </Router>
 </div>
