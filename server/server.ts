@@ -8,6 +8,9 @@ export function init() {
   const svelte = require("../dist/app.js");
 
   const app = express();
+  app.use((req, res, next) => {
+    next();
+  });
   app.use(express.static(process.cwd() + "/dist"));
   app.get("/robots.txt", (_, res) =>
     res.send(`User-agent: *\,Allow: /\n\nSitemap: https://itsmeow.cat/sitemap.xml`)
@@ -19,11 +22,25 @@ export function init() {
       html = require("../dist/app.js").default.render({ url: req.url }).html;
     } else html = svelte.default.render({ url: req.url }).html;
 
-    const file = fs.readFileSync(process.cwd() + "/src/index.html").toString();
+    const file = fs.readFileSync(process.cwd() + "/src/index.html").toString(),
+      dist = fs.readdirSync(process.cwd() + "/dist");
     res.send(
       file
+        .replace(
+          "$JSNAME",
+          dist.find((f) => f.startsWith("index-") && f.endsWith(".js"))
+        )
         .replace("<!--HTML-->", html)
-        .replace("/*CSS*/", fs.readFileSync(process.cwd() + "/dist/index.css").toString())
+        .replace(
+          "/*CSS*/",
+          fs
+            .readFileSync(
+              process.cwd() +
+                "/dist/" +
+                dist.find((f) => f.startsWith("index-") && f.endsWith(".css"))
+            )
+            .toString()
+        )
     );
   });
   app.listen(config.port, () => {

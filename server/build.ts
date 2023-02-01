@@ -17,6 +17,7 @@ esbuild
     sourcemap: false,
     splitting: true,
     format: "esm",
+    entryNames: "[dir]/[name]-[hash]",
     watch: process.argv.includes(`--watch`),
     plugins: [
       esbuildSvelte({
