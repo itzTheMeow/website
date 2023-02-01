@@ -17,7 +17,6 @@ esbuild
     sourcemap: false,
     splitting: true,
     format: "esm",
-    entryNames: "[dir]/[name]-[hash]",
     watch: process.argv.includes(`--watch`),
     plugins: [
       esbuildSvelte({
@@ -31,6 +30,7 @@ esbuild
         },
       }),
     ],
+    publicPath: "/",
     logLevel: "info",
     target: "es6",
     loader: { ".png": "file", ".ttf": "file", ".woff2": "file" },
