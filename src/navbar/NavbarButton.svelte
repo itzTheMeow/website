@@ -25,6 +25,7 @@
     offset: [0, 6],
   }}
   aria-label={label || square}
+  role="button"
   href={typeof href == "string" ? href : undefined}
   on:click={typeof href !== "string" ? href() : undefined}
   use:link
