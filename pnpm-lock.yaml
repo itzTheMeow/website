@@ -4,6 +4,7 @@ specifiers:
   '@tabler/icons-svelte': ^2.1.2
   '@tsconfig/svelte': ^3.0.0
   '@types/express': ^4.17.13
+  '@types/express-useragent': ^1.0.2
   '@types/tinycolor2': ^1.4.3
   autoprefixer: ^10.4.8
   daisyui: ^2.24.0
@@ -11,6 +12,7 @@ specifiers:
   esbuild-style-plugin: ^1.6.0
   esbuild-svelte: ^0.7.1
   express: ^4.18.1
+  express-useragent: ^1.0.15
   postcss: ^8.4.16
   rimraf: ^4.1.2
   sass: ^1.57.1
@@ -27,6 +29,7 @@ dependencies:
   '@tabler/icons-svelte': 2.1.2_svelte@3.55.1
   '@tsconfig/svelte': 3.0.0
   '@types/express': 4.17.16
+  '@types/express-useragent': 1.0.2
   '@types/tinycolor2': 1.4.3
   autoprefixer: 10.4.13_postcss@8.4.21
   daisyui: 2.49.0_gbtt6ss3tbiz4yjtvdr6fbrj44
@@ -34,6 +37,7 @@ dependencies:
   esbuild-style-plugin: 1.6.1
   esbuild-svelte: 0.7.3_k7u7xtva3uxfbevthkwo7cytoq
   express: 4.18.2
+  express-useragent: 1.0.15
   postcss: 8.4.21
   rimraf: 4.1.2
   sass: 1.57.1
@@ -118,6 +122,12 @@ packages:
       '@types/node': 18.11.18
       '@types/qs': 6.9.7
       '@types/range-parser': 1.2.4
+    dev: false
+
+  /@types/express-useragent/1.0.2:
+    resolution: {integrity: sha512-eUVCqMsmEO7adMJSxuAARPUxbEJLYQJATiB86bx3MGeyUOTgKNnLTfAMaF+z84DftcH6NBbFFwiRomIcsFVdUQ==}
+    dependencies:
+      '@types/express': 4.17.16
     dev: false
 
   /@types/express/4.17.16:
@@ -727,6 +737,11 @@ packages:
   /etag/1.8.1:
     resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /express-useragent/1.0.15:
+    resolution: {integrity: sha512-eq5xMiYCYwFPoekffMjvEIk+NWdlQY9Y38OsTyl13IvA728vKT+q/CSERYWzcw93HGBJcIqMIsZC5CZGARPVdg==}
+    engines: {node: '>=4.5'}
     dev: false
 
   /express/4.18.2:
