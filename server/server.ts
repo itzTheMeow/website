@@ -13,9 +13,7 @@ export function init() {
     next();
   });
   app.use(express.static(process.cwd() + "/dist"));
-  app.get("/robots.txt", (_, res) =>
-    res.send(`User-agent: *\,Allow: /\n\nSitemap: https://itsmeow.cat/sitemap.xml`)
-  );
+  app.use(express.static(process.cwd() + "/static"));
   app.get("*", (req, res) => {
     let html = "";
     if (process.argv.includes(`--watch`)) {
@@ -42,6 +40,8 @@ export function init() {
             )
             .toString()
         )
+        .replace(/\$pageTitle/g, "Meow's Website")
+        .replace(/\$pageDescription/g, "My personal website for projects and tools.")
     );
   });
   app.listen(config.port, () => {
