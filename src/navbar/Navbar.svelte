@@ -35,10 +35,11 @@
   {#if $ScreenWidth > 600}
     {#each NavButtons as btn}
       {#if !Array.isArray(btn.href)}
-        <NavbarButton href={btn.href}>{btn.name}</NavbarButton>
+        <NavbarButton label={btn.name} href={btn.href}>{btn.name}</NavbarButton>
       {:else}
         <div class="relative">
           <NavbarButton
+            label="Expand {btn.name} Links"
             popout
             href={() =>
               Array.isArray(btn.href) && $openMenu !== btn.href
@@ -55,7 +56,11 @@
     {/each}
   {:else}
     <div class="relative">
-      <NavbarButton popout href={() => openMenu.set($openMenu ? null : true)}>
+      <NavbarButton
+        label="Expands Links Menu"
+        popout
+        href={() => openMenu.set($openMenu ? null : true)}
+      >
         <IconMenu2 />
       </NavbarButton>
       {#if $openMenu && $ScreenWidth <= 600}

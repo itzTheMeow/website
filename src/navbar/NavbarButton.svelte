@@ -6,7 +6,8 @@
   export let href: string | (() => any),
     square = "",
     className = "",
-    popout = false;
+    popout = false,
+    label = "";
 </script>
 
 <svelte:element
@@ -23,6 +24,7 @@
     arrow: false,
     offset: [0, 6],
   }}
+  aria-label={label}
   href={typeof href == "string" ? href : undefined}
   on:click={typeof href !== "string" ? href() : undefined}
   use:link
