@@ -13,7 +13,7 @@ export function init() {
   app.use((req, res, next) => {
     res.setHeader(
       "Cache-Control",
-      process.argv.includes(`--watch`) ? "public, max-age=0" : "public, max-age=604800"
+      process.argv.includes(`--watch`) ? "public, max-age=0" : "public, max-age=31536000"
     );
     next();
   });
