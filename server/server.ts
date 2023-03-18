@@ -43,6 +43,6 @@ export function init() {
     );
   });
   app.listen(config.port, () => {
-    console.log(`Listening on port ${config.port}.`);
+    console.log(`Server is online on port ${config.port}.`);
   });
 }
