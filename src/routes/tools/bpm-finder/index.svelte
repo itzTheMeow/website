@@ -1,5 +1,5 @@
 <script lang="ts">
-  import MusicTempo from "music-tempo";
+  import { onMount } from "svelte";
   import Button from "UI/Button.svelte";
   import FileInput from "UI/FileInput.svelte";
   import Page from "UI/Page.svelte";
@@ -12,7 +12,13 @@
     } = {},
     context: AudioContext;
 
+  let MusicTempo: typeof import("music-tempo").default;
+  onMount(async () => {
+    MusicTempo = (await import("music-tempo")).default;
+  });
+
   function startCalc() {
+    if (!MusicTempo) return (state = { error: "Music tempo library not loaded." });
     if (!(state.file instanceof File)) return (state = {});
     const reader = new FileReader();
     reader.onload = (e) => {
