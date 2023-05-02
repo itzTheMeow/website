@@ -1,16 +1,33 @@
+import brotli from "brotli";
 import express from "express";
 import gzip from "express-static-gzip";
 import UserAgent from "express-useragent";
 import fs from "fs";
+import path from "path";
 import config from "./config";
 
 export function init() {
   console.log("Starting backend.");
 
-  const svelte = require("../dist/app.js"),
+  const dist = path.join(process.cwd(), "dist"),
+    svelte = require("../dist/app.js"),
     hash = Date.now().toString(36).toUpperCase();
 
-  fs.copyFileSync(process.cwd() + "/dist/index.js", process.cwd() + `/dist/index-${hash}.js`);
+  fs.renameSync(path.join(dist, "index.js"), path.join(dist, `index-${hash}.js`));
+
+  console.log("Compressing...");
+  fs.readdirSync(dist).forEach((f) => {
+    if (f.endsWith(".js") || f.endsWith(".css") || f.endsWith(".ttf") || f.endsWith(".woff2")) {
+      fs.writeFileSync(
+        path.join(dist, `${f}.br`),
+        brotli.compress(fs.readFileSync(path.join(dist, f)), {
+          quality: 11,
+          mode: f.endsWith(".ttf") || f.endsWith(".woff2") ? 2 : 1,
+        })
+      );
+    }
+  });
+  console.log("Compression complete!");
 
   const app = express();
   app.use((req, res, next) => {
@@ -20,7 +37,7 @@ export function init() {
     );
     next();
   });
-  app.use(gzip(process.cwd() + "/dist", {}));
+  app.use(gzip(process.cwd() + "/dist", { enableBrotli: true }));
   app.use(gzip(process.cwd() + "/static", {}));
   app.get("*", (req, res) => {
     let html = "";

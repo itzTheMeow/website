@@ -32,7 +32,7 @@ esbuild
     ],
     publicPath: "/",
     logLevel: "info",
-    target: "es6",
+    target: ["es2020", "safari12"],
     loader: { ".png": "file", ".ttf": "file", ".woff2": "file" },
   })
   .then(async () => {
@@ -57,7 +57,6 @@ esbuild
         }),
       ],
       mainFields: ["svelte", "browser", "module", "main"],
-      target: "es6",
     });
     init();
   })
