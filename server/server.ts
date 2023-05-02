@@ -1,4 +1,5 @@
 import express from "express";
+import gzip from "express-static-gzip";
 import UserAgent from "express-useragent";
 import fs from "fs";
 import config from "./config";
@@ -9,6 +10,8 @@ export function init() {
   const svelte = require("../dist/app.js"),
     hash = Date.now().toString(36).toUpperCase();
 
+  fs.copyFileSync(process.cwd() + "/dist/index.js", process.cwd() + `/dist/index-${hash}.js`);
+
   const app = express();
   app.use((req, res, next) => {
     res.setHeader(
@@ -17,9 +20,8 @@ export function init() {
     );
     next();
   });
-  app.use(express.static(process.cwd() + "/dist"));
-  app.use(express.static(process.cwd() + "/static"));
-  app.get(`/index-${hash}.js`, (_, res) => res.sendFile(process.cwd() + "/dist/index.js"));
+  app.use(gzip(process.cwd() + "/dist", {}));
+  app.use(gzip(process.cwd() + "/static", {}));
   app.get("*", (req, res) => {
     let html = "";
     const { isMobile } = UserAgent.parse(req.header("user-agent"));

@@ -12,6 +12,7 @@ specifiers:
   esbuild-style-plugin: ^1.6.0
   esbuild-svelte: ^0.7.1
   express: ^4.18.1
+  express-static-gzip: ^2.1.7
   express-useragent: ^1.0.15
   music-tempo: ^1.0.3
   postcss: ^8.4.16
@@ -38,6 +39,7 @@ dependencies:
   esbuild-style-plugin: 1.6.1
   esbuild-svelte: 0.7.3_k7u7xtva3uxfbevthkwo7cytoq
   express: 4.18.2
+  express-static-gzip: 2.1.7
   express-useragent: 1.0.15
   music-tempo: 1.0.3
   postcss: 8.4.21
@@ -739,6 +741,14 @@ packages:
   /etag/1.8.1:
     resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /express-static-gzip/2.1.7:
+    resolution: {integrity: sha512-QOCZUC+lhPPCjIJKpQGu1Oa61Axg9Mq09Qvit8Of7kzpMuwDeMSqjjQteQS3OVw/GkENBoSBheuQDWPlngImvw==}
+    dependencies:
+      serve-static: 1.15.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /express-useragent/1.0.15:
