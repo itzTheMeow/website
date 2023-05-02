@@ -17,14 +17,12 @@ export function init() {
 
   console.log("Compressing...");
   fs.readdirSync(dist).forEach((f) => {
-    if (f.endsWith(".js") || f.endsWith(".css") || f.endsWith(".ttf") || f.endsWith(".woff2")) {
-      fs.writeFileSync(
-        path.join(dist, `${f}.br`),
-        brotli.compress(fs.readFileSync(path.join(dist, f)), {
-          quality: 11,
-          mode: f.endsWith(".ttf") || f.endsWith(".woff2") ? 2 : 1,
-        })
-      );
+    if (f.endsWith(".js") || f.endsWith(".css") || f.endsWith(".ttf")) {
+      const compressed = brotli.compress(fs.readFileSync(path.join(dist, f)), {
+        quality: 11,
+        mode: f.endsWith(".ttf") ? 2 : 1,
+      });
+      if (compressed) fs.writeFileSync(path.join(dist, `${f}.br`), compressed);
     }
   });
   console.log("Compression complete!");
