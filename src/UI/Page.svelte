@@ -9,6 +9,6 @@
   });
 </script>
 
-<div class="flex-1 {className}">
+<div class="flex-1 overflow-y-auto {className}">
   <slot />
 </div>

@@ -33,6 +33,7 @@
     <Project
       name="YTMusic"
       icon="https://raw.githubusercontent.com/itzTheMeow/YTMusic/main/logo.svg"
+      color="#661ae6"
     >
       test
     </Project>

@@ -1,5 +1,5 @@
 export enum Colors {
-  primary = "#414558",
+  primary = "#2e323c",
   secondary = "#21222c",
   tertiary = "#111315",
   navbar = "#282a36",

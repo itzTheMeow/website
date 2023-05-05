@@ -13,7 +13,7 @@ export function init() {
     svelte = require("../dist/app.js"),
     hash = Date.now().toString(36).toUpperCase();
 
-  fs.renameSync(path.join(dist, "index.js"), path.join(dist, `index-${hash}.js`));
+  fs.symlinkSync(path.join(dist, "index.js"), path.join(dist, `index-${hash}.js`));
 
   console.log("Compressing...");
   fs.readdirSync(dist).forEach((f) => {
@@ -35,7 +35,7 @@ export function init() {
     );
     next();
   });
-  app.use(gzip(process.cwd() + "/dist", { enableBrotli: true }));
+  app.use(gzip(process.cwd() + "/dist", { enableBrotli: !process.argv.includes(`--watch`) }));
   app.use(gzip(process.cwd() + "/static", {}));
   app.get("*", (req, res) => {
     let html = "";

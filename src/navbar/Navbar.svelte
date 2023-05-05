@@ -10,7 +10,7 @@
   } from "@tabler/icons-svelte";
   import { MyAccount } from "Auth";
   import { Colors } from "Colors";
-  import { getWindow, ScreenWidth } from "State";
+  import { ScreenWidth, getWindow } from "State";
   import { onDestroy, onMount } from "svelte";
   import { NavButtons, openMenu } from "./Navbar";
   import NavbarButton from "./NavbarButton.svelte";
@@ -31,7 +31,7 @@
   });
 </script>
 
-<div class="w-full h-16 flex items-center px-3 gap-2 bg-black bg-opacity-10">
+<div class="w-full h-16 flex items-center px-3 gap-2 shrink-0 bg-black bg-opacity-10">
   {#if $ScreenWidth > 600}
     {#each NavButtons as btn}
       {#if !Array.isArray(btn.href)}
