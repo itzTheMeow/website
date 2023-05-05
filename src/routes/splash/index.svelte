@@ -10,7 +10,7 @@
   <div
     class="flex flex-col gap-0.5 {$ScreenWidth <= 800
       ? 'mx-auto mt-[7%]'
-      : 'ml-[15%] mt-[10%]'} w-fit font-[Nevis]"
+      : 'ml-[5%] mt-[3%]'} w-fit font-[Nevis]"
   >
     <h1
       class="{$ScreenWidth <= 425
@@ -23,14 +23,14 @@
     </h1>
     <p in:blur={{ delay: 400, duration: 800 }}>I make stuff.</p>
   </div>
-  <div class="ml-[10%] mt-8">
-    <h2
-      in:fly={{ duration: 300, x: -15, delay: 1200 }}
-      class="text-sm uppercase brightness-[.65] font-[Quicksand] font-semibold"
-    >
-      Check it Out
-    </h2>
-  </div>
+  <h2
+    in:fly={{ duration: 300, [$ScreenWidth <= 425 ? "y" : "x"]: -15, delay: 1200 }}
+    class="{$ScreenWidth <= 425
+      ? 'text-center'
+      : 'ml-[3%]'} mt-8 mb-2 uppercase brightness-[.7] font-[Quicksand] font-semibold"
+  >
+    Check it Out
+  </h2>
   <div class="flex flex-wrap px-4 gap-1 justify-start">
     <Project offset={1} name="Trade Hub" icon="https://cdn.nvst.ly/static/logo.svg" color="#1dbac5">
       Trade Hub is a trade tracking/sharing app.
