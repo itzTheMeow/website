@@ -37,5 +37,15 @@
     >
       test
     </Project>
+    <Project name="Trade Hub" icon="https://cdn.nvst.ly/static/logo.svg" color="#1dbac5">
+      test
+    </Project>
+    <Project
+      name="RevKit"
+      icon="https://raw.githubusercontent.com/Revolt-Unofficial-Clients/revkit/master/revkit-logo.svg"
+      color="#ff4654"
+    >
+      test
+    </Project>
   </div>
 </Page>
