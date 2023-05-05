@@ -18,7 +18,7 @@
 >
   <div class="flex rounded items-center gap-2 w-fit p-2" style:background={Colors.secondary}>
     <img class="w-10 h-10 object-contain" src={icon} alt={name} crossorigin="anonymous" />
-    <h4 class="font-semibold text-lg">{name}</h4>
+    <div class="font-semibold text-lg">{name}</div>
   </div>
   <slot />
 </div>
