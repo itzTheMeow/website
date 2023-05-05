@@ -1,8 +1,9 @@
 <script lang="ts">
   import { Gradient, Gradients } from "Colors";
   import { ScreenWidth } from "State";
-  import { blur, fly } from "svelte/transition";
   import Page from "UI/Page.svelte";
+  import { blur, fly } from "svelte/transition";
+  import Project from "./project.svelte";
 </script>
 
 <Page title="Meow">
@@ -29,5 +30,11 @@
     >
       Check it Out
     </h2>
+    <Project
+      name="YTMusic"
+      icon="https://raw.githubusercontent.com/itzTheMeow/YTMusic/main/logo.svg"
+    >
+      test
+    </Project>
   </div>
 </Page>
