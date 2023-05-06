@@ -54,7 +54,7 @@
         c.style.opacity = "0";
       }
     });
-    card.ontransitionend = () => navigate(Paths.Project$.replace("$", projectID));
+    setTimeout(() => navigate(Paths.Project$.replace("$", projectID)), EXPAND_DURATION * 1.05);
   }}
 >
   <Background color={project.color} background={Colors.primary} saturation={25} intensity={4} />
