@@ -1,10 +1,18 @@
 <script lang="ts">
   import { Gradient, Gradients } from "Colors";
   import { ProjectID, Projects } from "Projects";
-  import { ScreenWidth } from "State";
+  import { ScreenWidth, playedSplash } from "State";
   import Page from "UI/Page.svelte";
+  import { onMount } from "svelte";
   import { blur, fly } from "svelte/transition";
   import Project from "./project.svelte";
+
+  let mul = 1;
+  $: mul = $playedSplash ? 0 : 1;
+
+  onMount(() => {
+    playedSplash.set(true);
+  });
 </script>
 
 <Page title="Meow">
@@ -18,14 +26,14 @@
         ? 'text-4xl'
         : 'text-6xl'} font-bold bg-clip-text text-transparent"
       style:background-image={Gradient(Gradients.Orange)}
-      in:fly={{ duration: 900, y: -35 }}
+      in:fly={{ duration: 900 * mul, y: -35 }}
     >
       Hi, I'm Meow
     </h1>
-    <p in:blur={{ delay: 400, duration: 800 }}>I make stuff.</p>
+    <p in:blur={{ delay: 400 * mul, duration: 800 * mul }}>I make stuff.</p>
   </div>
   <h2
-    in:fly={{ duration: 300, [$ScreenWidth <= 425 ? "y" : "x"]: -15, delay: 1200 }}
+    in:fly={{ duration: 300 * mul, [$ScreenWidth <= 425 ? "y" : "x"]: -15, delay: 1200 * mul }}
     class="{$ScreenWidth <= 425
       ? 'text-center'
       : 'ml-[3%]'} mt-8 mb-2 uppercase brightness-[.7] font-[Quicksand] font-semibold"
@@ -34,7 +42,7 @@
   </h2>
   <div class="flex flex-wrap px-4 gap-1 justify-start">
     {#each Object.entries(Projects) as proj, i}
-      <Project offset={i + 1} projectID={proj[0]} project={proj[1]}>
+      <Project offset={(i + 1) * mul} projectID={proj[0]} project={proj[1]}>
         {#if proj[0] == ProjectID.TradeHub}
           Trade Hub is a trade tracking/sharing app.
         {:else if proj[0] == ProjectID.YTMusic}

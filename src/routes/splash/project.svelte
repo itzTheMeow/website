@@ -27,7 +27,7 @@
   style:width="calc({(1 / ($ScreenWidth <= 600 ? 1 : $ScreenWidth <= 1000 ? 2 : 3)) * 100}% -
   0.25rem)"
   bind:this={card}
-  in:blur={{ delay: BASE_DELAY + 150 * offset, duration: 800 }}
+  in:blur={{ delay: offset ? BASE_DELAY + 150 * offset : 0, duration: offset ? 800 : 0 }}
   on:click={async () => {
     expand = true;
     const rect = card.getBoundingClientRect();

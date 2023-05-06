@@ -11,3 +11,5 @@ getWindow()?.addEventListener("resize", () => calcScreen());
 getWindow()?.addEventListener("focus", () => calcScreen());
 getWindow()?.addEventListener("deviceorientation", () => calcScreen());
 calcScreen();
+
+export const playedSplash = writable(false);
