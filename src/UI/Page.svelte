@@ -9,6 +9,6 @@
   });
 </script>
 
-<div class="flex-1 overflow-y-auto py-2 relative z-10 {className}">
+<div class="flex-1 overflow-auto py-2 {className}">
   <slot />
 </div>

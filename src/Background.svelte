@@ -11,6 +11,6 @@
 </script>
 
 <div
-  class="absolute top-0 left-0 w-full h-full {page ? 'page-bg' : ''} {className}"
+  class="absolute top-0 left-0 w-full h-full z-[-1] {page ? 'page-bg' : ''} {className}"
   style:background={generateUltrablurCSS(color, background, saturation, intensity)}
 />
