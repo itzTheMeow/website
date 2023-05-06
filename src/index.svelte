@@ -1,10 +1,12 @@
 <script lang="ts">
+  import Background from "Background.svelte";
   import { Colors } from "Colors";
   import { Paths } from "Paths";
+  import { ProjectID } from "Projects";
   import { ScreenWidth } from "State";
   import Navbar from "navbar/Navbar.svelte";
   import { Route, Router } from "svelte-routing";
-  import { generateUltrablurCSS } from "ultrablur";
+  import PageProjectTradeHub from "./routes/projects/tradehub/index.svelte";
   import PageSplash from "./routes/splash/index.svelte";
   import PageBPMFinder from "./routes/tools/bpm-finder/index.svelte";
 
@@ -15,14 +17,19 @@
   if (url) $ScreenWidth = isMobile ? 1 : Infinity;
 </script>
 
-<div
-  class="absolute top-0 left-0 w-full h-full blur-md"
-  style:background={generateUltrablurCSS(Colors.background, "#000000", -70, 15)}
+<Background
+  color={Colors.background}
+  background="#000000"
+  saturation={-70}
+  intensity={15}
+  page
+  className="blur-md"
 />
 <div class="flex flex-col overflow-hidden w-full h-full relative">
   <Navbar />
   <Router {url}>
     <Route path={Paths.Splash} component={PageSplash} />
     <Route path={Paths.ToolBPMFinder} component={PageBPMFinder} />
+    <Route path={Paths.Project$.replace("$", ProjectID.TradeHub)} component={PageProjectTradeHub} />
   </Router>
 </div>

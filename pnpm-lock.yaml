@@ -22,7 +22,7 @@ specifiers:
   sass: ^1.62.1
   svelte: ^3.59.0
   svelte-preprocess: ^5.0.3
-  svelte-routing: ^1.8.2
+  svelte-routing: ^1.8.4
   svelte-tippy: ^1.3.2
   tailwindcss: ^3.3.2
   tinycolor2: ^1.6.0
@@ -51,7 +51,7 @@ dependencies:
   sass: 1.62.1
   svelte: 3.59.0
   svelte-preprocess: 5.0.3_sepfmcj7j6bhsw6hbvvu6mchc4
-  svelte-routing: 1.8.2
+  svelte-routing: 1.8.4
   svelte-tippy: 1.3.2
   tailwindcss: 3.3.2
   tinycolor2: 1.6.0
@@ -1820,8 +1820,8 @@ packages:
       typescript: 5.0.4
     dev: false
 
-  /svelte-routing/1.8.2:
-    resolution: {integrity: sha512-DTmvYuqjUPsNrCDd4+FeKt+JAwfpiShv2zA48a+U16Kxxyf9znG3Bu87xVwfW6welMSVxKeboyf7IP/tBEueAg==}
+  /svelte-routing/1.8.4:
+    resolution: {integrity: sha512-EFpbmCdL6gTE7+cb5SvC2PNGeVkbzjgg6y80XT2rFyJ+LsGq70O9ypMgrq263vDv9Ojczw/tIE7xcEu2ZR939g==}
     dev: false
 
   /svelte-tippy/1.3.2:

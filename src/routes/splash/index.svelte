@@ -34,7 +34,7 @@
   </h2>
   <div class="flex flex-wrap px-4 gap-1 justify-start">
     {#each Object.entries(Projects) as proj, i}
-      <Project offset={i + 1} project={proj[1]}>
+      <Project offset={i + 1} projectID={proj[0]} project={proj[1]}>
         {#if proj[0] == ProjectID.TradeHub}
           Trade Hub is a trade tracking/sharing app.
         {:else if proj[0] == ProjectID.YTMusic}

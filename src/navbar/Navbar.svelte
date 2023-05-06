@@ -31,7 +31,7 @@
   });
 </script>
 
-<div class="w-full h-16 flex items-center px-3 gap-2 shrink-0 bg-black bg-opacity-10">
+<div class="w-full h-16 flex items-center px-3 gap-2 shrink-0 bg-black bg-opacity-10 relative z-40">
   {#if $ScreenWidth > 600}
     {#each NavButtons as btn}
       {#if !Array.isArray(btn.href)}
