@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Gradient, Gradients } from "Colors";
+  import { ProjectID, Projects } from "Projects";
   import { ScreenWidth } from "State";
   import Page from "UI/Page.svelte";
   import { blur, fly } from "svelte/transition";
@@ -32,57 +33,26 @@
     Check it Out
   </h2>
   <div class="flex flex-wrap px-4 gap-1 justify-start">
-    <Project offset={1} name="Trade Hub" icon="https://cdn.nvst.ly/static/logo.svg" color="#1dbac5">
-      Trade Hub is a trade tracking/sharing app.
-    </Project>
-    <Project
-      offset={2}
-      name="YTMusic"
-      icon="https://raw.githubusercontent.com/itzTheMeow/YTMusic/main/logo.svg"
-      color="#661ae6"
-    >
-      A music downloader dashboard.
-    </Project>
-    <Project
-      offset={3}
-      name="RevKit"
-      icon="https://raw.githubusercontent.com/Revolt-Unofficial-Clients/revkit/master/revkit-logo.svg"
-      color="#ff4654"
-    >
-      A client library for Revolt.
-    </Project>
-    <Project
-      offset={4}
-      name="PHLASH"
-      icon="https://raw.githubusercontent.com/itzTheMeow/revolt-phlash/master/PHLASH.png"
-      color="#5b00c3"
-    >
-      A Revolt bot made using RevKit.
-    </Project>
-    <Project
-      offset={5}
-      name="Svolte"
-      icon="https://raw.githubusercontent.com/itzTheMeow/revolt-svolte/master/svolte-logo.svg"
-      color="#ff4654"
-    >
-      A Revolt client using Revkit.
-    </Project>
-    <Project
-      offset={6}
-      name="Revolt Subsystem for Discord"
-      icon="https://raw.githubusercontent.com/itzTheMeow/revolt-subsystem-discord/master/rsd-logo-dark.svg"
-      color="#ff4654"
-    >
-      A bridge providing 1-1 translation from Revolt's API to Discord's. Allows you to connect to a
-      Discord account using a Revolt client.
-    </Project>
-    <Project
-      offset={7}
-      name="NinjaIOUtils"
-      icon="https://raw.githubusercontent.com/itzTheMeow/NinjaIOUtils/master/logo.png"
-      color="#344152"
-    >
-      A utility script and modloader for the browser game <a href="https://ninja.io">ninja.io</a>.
-    </Project>
+    {#each Object.entries(Projects) as proj, i}
+      <Project offset={i + 1} project={proj[1]}>
+        {#if proj[0] == ProjectID.TradeHub}
+          Trade Hub is a trade tracking/sharing app.
+        {:else if proj[0] == ProjectID.YTMusic}
+          A music downloader dashboard.
+        {:else if proj[0] == ProjectID.RevKit}
+          A client library for Revolt.
+        {:else if proj[0] == ProjectID.PHLASH}
+          A Revolt bot made using RevKit.
+        {:else if proj[0] == ProjectID.Svolte}
+          A Revolt client using Revkit.
+        {:else if proj[0] == ProjectID.RsD}
+          A bridge providing 1-1 translation from Revolt's API to Discord's. Allows you to connect
+          to a Discord account using a Revolt client.
+        {:else if proj[0] == ProjectID.NinjaIOUtils}
+          A utility script and modloader for the browser game <a href="https://ninja.io">ninja.io</a
+          >.
+        {/if}
+      </Project>
+    {/each}
   </div>
 </Page>
