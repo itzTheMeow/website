@@ -15,9 +15,8 @@
 
 <svelte:element
   this={typeof clicked == "string" ? "a" : "button"}
-  class="btn gap-1 hover:blur-[1px] {className}"
+  class="btn gap-1 hover:blur-[1px] [border:none] {className}"
   style:background={color}
-  style:border-color={tinycolor(color).darken().toRgbString()}
   style:color={tinycolor(color).isDark() ? Colors.text : Colors.background}
   href={typeof clicked == "string" ? clicked : ""}
   target={typeof clicked == "string" && !clicked.startsWith("/") ? "_blank" : ""}
