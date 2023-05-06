@@ -64,7 +64,7 @@
       background={Colors.background}
       saturation={45}
       intensity={4}
-      page
+      className="page-bg"
     />
   {/if}
   <div class="relative p-3">
