@@ -1,15 +1,14 @@
 <script lang="ts">
   import {
     IconChevronDown,
-    IconChevronLeft,
-    IconChevronRight,
     IconCodePlus,
+    IconHome,
     IconLogin,
     IconMenu2,
     IconPhotoUp,
   } from "@tabler/icons-svelte";
   import { MyAccount } from "Auth";
-  import { Colors } from "Colors";
+  import { Paths } from "Paths";
   import { ScreenWidth, getWindow } from "State";
   import { onDestroy, onMount } from "svelte";
   import { NavButtons, openMenu } from "./Navbar";
@@ -55,6 +54,7 @@
       {/if}
     {/each}
   {:else}
+    <NavbarButton href={Paths.Splash} square="Home"><IconHome /></NavbarButton>
     <div class="relative">
       <NavbarButton
         label="Expands Links Menu"
@@ -68,38 +68,10 @@
       {/if}
     </div>
   {/if}
-  {#if $openMenu && typeof $openMenu !== "boolean" && $ScreenWidth <= 600}
-    <ul
-      class="absolute top-[125%] left-0 menu w-max rounded-box z-50"
-      style:background={Colors.tertiary}
-    >
-      {#each NavButtons as btn}
-        {#if !Array.isArray(btn.href)}
-          <li>
-            <NavbarButton href={btn.href} className="!rounded-none !bg-none !h-14 text-lg">
-              {btn.name}
-            </NavbarButton>
-          </li>
-        {:else}
-          <li>
-            <NavbarButton
-              href={() => Array.isArray(btn.href) && openMenu.set(btn.href)}
-              className="!rounded-none !bg-none !h-14 text-lg"
-              popout
-            >
-              <IconChevronLeft class="mr-auto invisible" size={20} />
-              {btn.name}
-              <IconChevronRight class="ml-auto" size={20} />
-            </NavbarButton>
-          </li>
-        {/if}
-      {/each}
-    </ul>
-  {/if}
   <div class="flex items-center gap-2 ml-auto">
-    <NavbarButton href="/" square="Upload Image"><IconPhotoUp /></NavbarButton>
-    <NavbarButton href="/" square="Upload Code"><IconCodePlus /></NavbarButton>
-    <NavbarButton href="/" square={$MyAccount ? "Manage Account" : "Log In"}>
+    <NavbarButton href="/img" square="Upload Image"><IconPhotoUp /></NavbarButton>
+    <NavbarButton href="/code" square="Upload Code"><IconCodePlus /></NavbarButton>
+    <NavbarButton href="/login" square={$MyAccount ? "Manage Account" : "Log In"}>
       {#if $MyAccount}
         <img class="w-9 h-9 rounded-full" src="/avatars/{$MyAccount.id}" alt="" />
       {:else}

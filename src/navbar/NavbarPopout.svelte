@@ -1,6 +1,7 @@
 <script lang="ts">
   import { IconChevronLeft, IconChevronRight } from "@tabler/icons-svelte";
   import { Colors } from "Colors";
+  import { Paths } from "Paths";
   import { ScreenWidth } from "State";
   import { NavButtons, openMenu } from "./Navbar";
   import NavbarButton from "./NavbarButton.svelte";
@@ -10,7 +11,7 @@
 </script>
 
 <ul class="absolute menu w-max rounded-box z-50 {className}" style:background={Colors.tertiary}>
-  {#each opened && Array.isArray($openMenu) ? $openMenu : NavButtons as btn}
+  {#each opened && Array.isArray($openMenu) ? $openMenu : NavButtons.filter((b) => $ScreenWidth > 600 || b.href !== Paths.Splash) as btn}
     {#if !Array.isArray(btn.href)}
       <li>
         <NavbarButton

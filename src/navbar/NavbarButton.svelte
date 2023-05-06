@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Gradient, Gradients } from "Colors";
+  import { Paths } from "Paths";
   import { link } from "svelte-routing";
   import { tippy } from "svelte-tippy";
 
@@ -15,7 +16,7 @@
   class="btn {square
     ? 'w-10 p-0'
     : ''} rounded-full border-none min-h-[2.5rem] h-10 text-gray-200 {className}"
-  style:background={Gradient(square ? Gradients.Pink : Gradients.Purple)}
+  style:background={Gradient(square && href !== Paths.Splash ? Gradients.Pink : Gradients.Purple)}
   use:tippy={{
     content: square,
     onShow() {
