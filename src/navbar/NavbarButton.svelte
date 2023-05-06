@@ -11,7 +11,7 @@
 </script>
 
 <svelte:element
-  this={typeof href == "string" ? "a" : "div"}
+  this={typeof href == "string" ? "a" : "button"}
   class="btn {square
     ? 'w-10 p-0'
     : ''} rounded-full border-none min-h-[2.5rem] h-10 text-gray-200 {className}"
@@ -26,6 +26,7 @@
   }}
   aria-label={label || square}
   role="button"
+  tabindex={0}
   href={typeof href == "string" ? href : undefined}
   on:click={typeof href !== "string" ? href() : undefined}
   use:link

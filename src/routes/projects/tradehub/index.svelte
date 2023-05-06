@@ -2,6 +2,7 @@
   import Background from "Background.svelte";
   import { Colors } from "Colors";
   import { ProjectID, Projects } from "Projects";
+  import Button from "UI/Button.svelte";
   import Page from "UI/Page.svelte";
 
   const project = Projects[ProjectID.TradeHub];
@@ -15,4 +16,9 @@
   page
 />
 
-<Page title="Trade Hub">test</Page>
+<Page title="Trade Hub">
+  <p>Trade Hub is a social trading app that lets you track and share trades.</p>
+  <Button color={project.color} clicked="https://thetradehub.net" label="Visit Trade Hub Website">
+    Visit Website
+  </Button>
+</Page>

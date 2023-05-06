@@ -9,7 +9,7 @@
   import { blur } from "svelte/transition";
 
   const BASE_DELAY = 1200,
-    EXPAND_DURATION = 1000;
+    EXPAND_DURATION = 500;
 
   export let offset: number,
     projectID: string,
@@ -53,9 +53,7 @@
         c.style.opacity = "0";
       }
     });
-    setTimeout(() => {
-      navigate(Paths.Project$.replace("$", projectID));
-    }, EXPAND_DURATION + 100);
+    card.ontransitionend = () => navigate(Paths.Project$.replace("$", projectID));
   }}
 >
   <Background color={project.color} background={Colors.primary} saturation={25} intensity={4} />

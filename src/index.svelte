@@ -25,7 +25,7 @@
   page
   className="blur-md"
 />
-<div class="flex flex-col overflow-hidden w-full h-full relative">
+<div class="flex flex-col overflow-hidden w-full h-full relative" style:color={Colors.text}>
   <Navbar />
   <Router {url}>
     <Route path={Paths.Splash} component={PageSplash} />
