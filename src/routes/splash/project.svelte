@@ -30,11 +30,12 @@
   in:blur={{ delay: BASE_DELAY + 150 * offset, duration: 800 }}
   on:click={async () => {
     expand = true;
-    card.style.position = "fixed";
+    const rect = card.getBoundingClientRect();
     card.style.left = `${card.offsetLeft}px`;
-    card.style.top = `${card.offsetTop}px`;
+    card.style.top = `${rect.top}px`;
     card.style.width = `${card.offsetWidth}px`;
     card.style.height = `${card.offsetHeight}px`;
+    card.style.position = "fixed";
     card.style.transition = `all, ${EXPAND_DURATION}ms`;
     card.style.zIndex = "2";
     card.style.cursor = "default";
