@@ -32,6 +32,12 @@
   className="blur-md"
 />
 <div class="flex flex-col overflow-hidden w-full h-full relative" style:color={Colors.text}>
+  <noscript>
+    <div class="w-full bg-red-600">
+      There's something wrong with you if you're browsing the web without JavaScript enabled. Turn
+      on JS...
+    </div>
+  </noscript>
   <Navbar />
   <Router {url}>
     <Route path={Paths.Splash} component={PageSplash} />
