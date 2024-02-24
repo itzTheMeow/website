@@ -7,11 +7,11 @@
   import Navbar from "navbar/Navbar.svelte";
   import { Route, Router } from "svelte-routing";
   import PageProjectNinjaIOUtils from "./routes/projects/ninjaioutils/index.svelte";
+  import PageProjectNVSTly from "./routes/projects/nvstly/index.svelte";
   import PageProjectPHLASH from "./routes/projects/phlash/index.svelte";
   import PageProjectRevKit from "./routes/projects/revkit/index.svelte";
   import PageProjectRsD from "./routes/projects/rsd/index.svelte";
   import PageProjectSvolte from "./routes/projects/svolte/index.svelte";
-  import PageProjectTradeHub from "./routes/projects/tradehub/index.svelte";
   import PageProjectYTMusic from "./routes/projects/ytmusic/index.svelte";
   import PageSplash from "./routes/splash/index.svelte";
   import PageBPMFinder from "./routes/tools/bpm-finder/index.svelte";
@@ -52,7 +52,7 @@
     <Route path={Paths.Project$.replace("$", ProjectID.RevKit)} component={PageProjectRevKit} />
     <Route path={Paths.Project$.replace("$", ProjectID.RsD)} component={PageProjectRsD} />
     <Route path={Paths.Project$.replace("$", ProjectID.Svolte)} component={PageProjectSvolte} />
-    <Route path={Paths.Project$.replace("$", ProjectID.TradeHub)} component={PageProjectTradeHub} />
+    <Route path={Paths.Project$.replace("$", ProjectID.NVSTly)} component={PageProjectNVSTly} />
     <Route path={Paths.Project$.replace("$", ProjectID.YTMusic)} component={PageProjectYTMusic} />
   </Router>
 </div>

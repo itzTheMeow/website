@@ -43,8 +43,10 @@
   <div class="flex flex-wrap px-4 gap-1 justify-start">
     {#each Object.entries(Projects) as proj, i}
       <Project offset={(i + 1) * mul} projectID={proj[0]} project={proj[1]}>
-        {#if proj[0] == ProjectID.TradeHub}
-          Trade Hub is a trade tracking/sharing app.
+        {#if proj[0] == ProjectID.NVSTly}
+          NVSTly is a free interactive social investing platform where traders track, share, & copy
+          trades. Follow top traders or earn recognition through building performance stats and
+          ranking against the best.
         {:else if proj[0] == ProjectID.YTMusic}
           A music downloader dashboard.
         {:else if proj[0] == ProjectID.RevKit}

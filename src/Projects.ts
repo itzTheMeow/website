@@ -1,5 +1,5 @@
 export enum ProjectID {
-  TradeHub = "tradehub",
+  NVSTly = "nvstly",
   YTMusic = "ytmusic",
   RevKit = "revkit",
   PHLASH = "phlash",
@@ -14,9 +14,9 @@ export interface ProjectJSON {
 }
 
 export const Projects: { [key in ProjectID]: ProjectJSON } = {
-  [ProjectID.TradeHub]: {
-    name: "Trade Hub",
-    icon: "https://cdn.nvst.ly/static/logo.svg",
+  [ProjectID.NVSTly]: {
+    name: "NVSTly",
+    icon: "https://cdn.nvstly.com/static/logo.svg",
     color: "#1dbac5",
   },
   [ProjectID.YTMusic]: {

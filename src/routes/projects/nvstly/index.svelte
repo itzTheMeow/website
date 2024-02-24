@@ -5,7 +5,7 @@
   import Button from "UI/Button.svelte";
   import Page from "UI/Page.svelte";
 
-  const project = Projects[ProjectID.TradeHub];
+  const project = Projects[ProjectID.NVSTly];
 </script>
 
 <Background
@@ -16,9 +16,13 @@
   page
 />
 
-<Page title="Trade Hub">
-  <p>Trade Hub is a social trading app that lets you track and share trades.</p>
-  <Button color={project.color} clicked="https://thetradehub.net" label="Visit Trade Hub Website">
+<Page title="NVSTly">
+  <p>
+    NVSTly is a free interactive social investing platform where traders track, share, & copy
+    trades. Follow top traders or earn recognition through building performance stats and ranking
+    against the best.
+  </p>
+  <Button color={project.color} clicked="https://nvstly.com" label="Visit NVSTly Website">
     Visit Website
   </Button>
 </Page>
