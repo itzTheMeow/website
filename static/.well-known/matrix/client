@@ -3,8 +3,12 @@
     "base_url": "https://matrix.xela.codes"
   },
   "m.authentication": {
-    "issuer": "https://matrix.xela.codes",
+    "issuer": "https://matrix.xela.codes/",
     "account": "https://matrix.xela.codes/account"
   },
-  "org.matrix.msc3861.issuer": "https://matrix.xela.codes"
+  "org.matrix.msc2965.authentication": {
+    "issuer": "https://matrix.xela.codes/",
+    "account": "https://matrix.xela.codes/account/"
+  },
+  "org.matrix.msc3861.issuer": "https://matrix.xela.codes/"
 }
